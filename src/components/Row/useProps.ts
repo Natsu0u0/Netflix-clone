@@ -10,6 +10,7 @@ export const useProps = (fetchUrl: string) => {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
+      console.log(request.data.results);
       const movies = request.data.results.map((movie: Movie) => ({
         id: movie.id,
         name: movie.name,
@@ -37,3 +38,5 @@ export const useProps = (fetchUrl: string) => {
     handleClick,
   };
 };
+export type { Movie };
+

@@ -23,17 +23,9 @@ type Options = {
   };
 };
 
-export const Layout = ({
-  title,
-  movies,
-  isLargeRow,
-  handleClick,
-  trailerUrl,
-}: LayoutProps) => {
+export const Layout = ({ title, movies, isLargeRow, handleClick, trailerUrl,}: LayoutProps) => {
   const image_url = "https://image.tmdb.org/t/p/original";
-  const opts: Options = {
-    height: "390",
-    width: "640",
+  const opts: Options = {height: "390", width: "640",
     playerVars: {
       autoplay: 1,
     },

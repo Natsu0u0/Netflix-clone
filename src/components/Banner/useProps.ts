@@ -9,7 +9,7 @@ export const useProps = () => {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
 
-      //apiからランダムで値を取得している
+      // ① 取得した映像データからランダムでmovieに格納
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
@@ -19,16 +19,12 @@ export const useProps = () => {
     fetchData();
   }, []);
 
-  // descriptionの切り捨てよう関数
+  // ② descriptionの切り捨て用の関数
   const truncate = (str: string | undefined, n: number): string => {
     if (!str) {
       return "";
     }
-    if (str.length > n) {
-      return str.substr(0, n - 1) + "...";
-    } else {
-      return str;
-    }
+    return str.length > n ? str.substr(0, n - 1) + "..." : str;
   };
 
   return {
